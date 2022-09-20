@@ -1,0 +1,23 @@
+<p>
+    <!-- #docregion toolbar-simple -->
+    <mat-toolbar style="height: 92px;background-color: white">
+        <img style="margin-left: 92px;" routerLink="/home" src="assets\images\tatwasoftLogo.jpeg" />
+        <span class="example-spacer"></span>
+        <div style="font-size:14px; margin-right: 115px;display: flex;cursor: pointer;">
+            <a style="color: #f14d54;margin-top: 18px;" routerLink="/login">Login</a>
+            <a style="color: #f14d54; padding: 9px; margin-top: 9px;">|</a>
+            <a style="color: #f14d54;    margin-top: 18px;" routerLink="/register">Register</a>
+            <a style="color: #f14d54;    margin-top: 18px; margin-left: 10px;" routerLink="/productsManagment">Products Management</a>
+            <a style="color: #f14d54;    margin-top: 18px; margin-left: 10px;" routerLink="/allProducts">All Products</a>
+
+            <div style="padding:22px;display: flex;" routerLink="/mycart">
+                <mat-icon style="color: #f14d54;">add_shopping_cart</mat-icon>
+                <p style="color: #f14d54;">{{cartCount}}</p>
+                <p style="margin-left: 5px;">Cart</p>
+
+            </div>
+        </div>
+
+    </mat-toolbar>
+    <!-- #enddocregion toolbar-simple -->
+</p>

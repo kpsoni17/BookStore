@@ -1,0 +1,62 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+    padding: 14px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #f14d54;
+    text-align: center;
+    cursor: pointer;
+    width: 180px;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+
+  .homeDiv {
+    text-align: center;
+    margin-top: 50px;
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 442px;
+    height: 18px;
+    background: #f1f1f1;
+    color: rgb(33, 33, 33);
+  }
+  
+  form.example button {
+    width: 129px;
+    height: 40px;
+    padding: 10px;
+    background-color: #80BF32;
+    color: white;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  

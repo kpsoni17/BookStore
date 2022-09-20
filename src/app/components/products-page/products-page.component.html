@@ -1,0 +1,120 @@
+
+<mat-toolbar>
+    <form class="example"  style="margin:auto;display: flex;">
+        <input type="text" placeholder="What are you looking for..." style="border-radius: 6px;" >
+        <button  style="margin-left: 12px;border-radius: 6px;"><i class="fa fa-search"></i> Search </button>
+        <button style="background-color: #f14d54;margin-left: 12px;border-radius: 6px;"> Cancel </button>
+      </form>
+</mat-toolbar> 
+<form  #productForm="ngForm">
+<mat-form-field style="padding: 15px;">
+    <input [disabled]="editMode" matInput placeholder="Id" name="id" required [(ngModel)]="productsData.id"/>
+</mat-form-field>
+<mat-form-field style="padding: 15px;">
+
+    <input matInput placeholder="firstName" name="firstName" required [(ngModel)]="productsData.firstName"/>
+</mat-form-field>
+
+
+<mat-form-field style="padding: 15px;">
+    <input matInput placeholder="lastName" name="lastName" required [(ngModel)]="productsData.lastName"/>
+</mat-form-field>
+
+
+
+<mat-form-field style="padding: 15px;">
+    <input matInput placeholder="description" name="description" required [(ngModel)]="productsData.description"/>
+</mat-form-field>
+
+<mat-form-field style="padding: 15px;">
+    <input matInput placeholder="category" name="category" required [(ngModel)]="productsData.category"/>
+</mat-form-field>
+
+
+    <!-- <input  type="file" [ngModelOptions]="{standalone: true}" [(ngModel)]="productsData.image"
+     (change)="onSelectattchment($event)"/> -->
+
+
+<!-- <mat-form-field>
+<ngx-mat-file-input [ngModelOptions]="{standalone: true}" [(ngModel)]="productsData.image"
+(change)="onSelectattchment($event)">
+</ngx-mat-file-input>
+</mat-form-field> -->
+<input type="file" (change)="onSelectattchment($event)"  [ngModelOptions]="{standalone: true}" [(ngModel)]="source"/>
+  
+
+
+
+<ng-container *ngIf="isEditable; else elseTemplate">
+    <button mat-raised-button color="primary" (click)="updateItem()">Update</button>
+    <a mat-raised-button color="warn" (click)="cancelEdit()">Cancel</a>
+
+</ng-container> &nbsp;
+<ng-template #elseTemplate>
+    <button mat-raised-button (click)="onSubmit()">Add</button>
+</ng-template>
+</form>
+
+<div class="table-wrapper">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id" >
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> firstName </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- age Column -->
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> lastName </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+
+    <!-- email Column -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- address Column -->
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> category </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef > Product Image </th>
+        <td mat-cell *matCellDef="let element" ><img  style="width: 120px; height:90px" [src]="sanitizer.bypassSecurityTrustUrl(element.image)"/></td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+            <a mat-raised-button color="accent" (click)="editItem(element)">Edit</a>
+            <a mat-raised-button color="warn" (click)="deleteItem(element.id)" style="margin-left:10px ;">Delete</a>
+
+        </td>
+       
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+    [ngClass]="{'editable-row':productsData.id === row.id}"></tr>
+</table>
+<mat-paginator [pageSize]="10"
+[pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+</mat-paginator>
+</div>
+
+<h1 *ngFor="let data of allData">
+<a >{{data.firstName}}</a>
+
+</h1>

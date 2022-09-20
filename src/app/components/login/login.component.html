@@ -1,0 +1,21 @@
+<form style="width: 500px;" class="modal-content animate" method="post" [formGroup]="loginForm">
+
+    <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="text" placeholder="Enter Registered Email" name="email" formControlName="email">
+      <p class="errorClass" *ngIf="submitted && l['email'].hasError('required')">*Email is required</p>
+ 
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" formControlName="password">
+      <p class="errorClass" *ngIf="submitted && l['password'].hasError('required')">*Password is required</p>
+
+        
+      <button style="background-color: #f14d54;" type="submit" (click)="login()">Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Not have a account ?<a routerLink="/register">register</a></span>
+    </div>
+  </form>

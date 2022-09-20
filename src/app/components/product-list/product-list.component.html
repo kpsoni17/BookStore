@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <form class="example"  style="margin:auto;display: flex;">
+        <input type="text" placeholder="What are you looking for..." style="border-radius: 6px;" >
+        <button  style="margin-left: 12px;border-radius: 6px;"><i class="fa fa-search"></i> Search </button>
+        <button style="background-color: #f14d54;margin-left: 12px;border-radius: 6px;"> Cancel </button>
+      </form>
+</mat-toolbar> 
+<div>
+    <p class="homeDiv" style="font-size:32px ; color: #414141;">Product List</p>
+</div> 
+
+<!-- "id": "66",
+"firstName": "436365346346",
+"lastName": "6464364",
+"description": "46436436",
+"category": "43634634634",
+"image": "data:image/png;base64, -->
+
+<div style="display: flex; padding:100px">
+    <div class="card" *ngFor="let data of allProducts.data">
+        <img [src]="data?.image"  style="width:80%">
+        <h1>{{data?.firstName}}{{data?.lastName}}</h1> 
+        <p class="title">{{data?.description}}</p>
+        <p style="text-align: left;margin-left:15px;">{{data?.category}}</p>
+        <p><button (click)="addToCart(data)" >Add To Cart</button></p>
+    </div>
+  
+</div>

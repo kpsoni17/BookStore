@@ -1,0 +1,53 @@
+<mat-toolbar>
+    <form class="example"  style="margin:auto;display: flex;">
+        <input type="text" placeholder="What are you looking for..." style="border-radius: 6px;" >
+        <button  style="margin-left: 12px;border-radius: 6px;"><i class="fa fa-search"></i> Search </button>
+        <button style="background-color: #f14d54;margin-left: 12px;border-radius: 6px;"> Cancel </button>
+      </form>
+</mat-toolbar> 
+<div>
+    <p class="homeDiv" style="font-size:32px ; color: #414141;">Login Or Create an Account</p>
+</div>
+<div class="split">
+    <div class="divsplit">
+        <p>New Customer</p>
+        <hr style="width: 402px;">
+        <p style="font-size: 15px; color:#838383">Registration is free and easy.</p>
+        <div style="font-size: 15px;color:#212121;width: 308px; margin-left: 292px; text-align: left;">
+            <li>Faster checkout</li>
+            <li>Save multiple shipping addresses</li>
+            <li>View and track orders and more</li>
+        </div>
+        <div style="margin-top: 165px;">
+            <button routerLink="/register" style="width:220px;height:45px;background-color:#f14d54" mat-raised-button>Create an
+                account</button>
+        </div>
+    </div>
+    <div class="divsplit">
+        <p>Registerd Customers</p>
+        <hr style="width: 402px;">
+        <p style="font-size: 15px; color:#838383">If you have an account with us plese login. </p>
+        <form [formGroup]="loginForm">
+        <div style="font-size: 15px;color:#212121;width: 308px; margin-left: 237px; text-align: left;">
+            <div>
+                <div>
+                    <label style="font-size: 15px;">Email address *</label>
+                </div>
+                <input placeholder="" formControlName="email" style="margin-top: 15px;" class="inputClass" />
+                <p class="errorClass" *ngIf="submitted && l['email'].hasError('required')">*Email is required</p>
+            </div>
+            <div>
+                <div style="margin-top: 20px;">
+                    <label style="font-size: 15px;">Password *</label>
+                </div>
+                <input placeholder="" formControlName="password" style="margin-top: 15px;" class="inputClass" />
+                <p class="errorClass" *ngIf="submitted && l['password'].hasError('required')">*Password is required</p>
+            </div>
+        </div>
+    </form>
+        <div style="margin-top: 75px;    text-align: left;
+        margin-left: 237px;">
+            <button style="width:100px;height:45px;background-color:#f14d54" (click)="login()" mat-raised-button>Login</button>
+        </div>
+    </div>
+</div>
