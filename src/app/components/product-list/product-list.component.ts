@@ -24,12 +24,12 @@ export class ProductListComponent implements OnInit {
     if (localStorage.getItem('PRODUCTS') != null) {
       this.cartProducts = JSON.parse(localStorage.getItem('PRODUCTS')!);
     }
-this.httpDataService.changeCartCount.subscribe((res:any)=>{
-  this.cartProducts = JSON.parse(localStorage.getItem('PRODUCTS')!);
+// this.httpDataService.changeCartCount.subscribe((res:any)=>{
+//   this.cartProducts = JSON.parse(localStorage.getItem('PRODUCTS')!);
 
-  this.httpDataService.changeCartCount.next(this.cartProducts.length);
+//   this.httpDataService.changeCartCount.next(this.cartProducts.length);
 
-})
+// })
 
   }
   cartProducts:any=[];

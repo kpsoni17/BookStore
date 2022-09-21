@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  [x: string]: any;
+ 
 loginForm:FormGroup;
   constructor(private fb:FormBuilder,private router:Router) {
     this.loginForm=this.fb.group({
@@ -22,8 +22,11 @@ loginForm:FormGroup;
     if (localStorage.getItem('USERS') != null) {
       this.allUsers = JSON.parse(localStorage.getItem('USERS')!);
     }
+
   }
 
+
+  validUser:any=[];
   login(){
     this.submitted=true;
     if(this.loginForm.invalid){
@@ -49,4 +52,9 @@ loginForm:FormGroup;
   get l (){
     return this.loginForm.controls;
   }
+  usernameErrorMsg:any='';
+  passwordErrorMsg:any='';
+
+
+
 }

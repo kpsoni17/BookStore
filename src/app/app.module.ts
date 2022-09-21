@@ -13,6 +13,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { OutHomeComponent } from './components/out-home/out-home.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
+import { HighlightDirective } from './app-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductsPageComponent } from './components/products-page/products-page.
     CartComponent,
     OutHomeComponent,
     ProductListComponent,
-    ProductsPageComponent
+    ProductsPageComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

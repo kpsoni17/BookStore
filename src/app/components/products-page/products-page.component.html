@@ -1,4 +1,5 @@
 
+<h2 style="background-color: skyblue;" >Products Page</h2>
 <mat-toolbar>
     <form class="example"  style="margin:auto;display: flex;">
         <input type="text" placeholder="What are you looking for..." style="border-radius: 6px;" >
@@ -23,8 +24,10 @@
 
 
 <mat-form-field style="padding: 15px;">
-    <input matInput placeholder="description" name="description" required [(ngModel)]="productsData.description"/>
+    <input class="description" id="description" matInput placeholder="description" name="description" required [(ngModel)]="productsData.description"/>
+   <!-- <p>Not specified</p>  -->
 </mat-form-field>
+
 
 <mat-form-field style="padding: 15px;">
     <input matInput placeholder="category" name="category" required [(ngModel)]="productsData.category"/>

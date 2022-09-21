@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpDataService } from 'src/app/services/http-data.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { HttpDataService } from 'src/app/services/http-data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private service : HttpDataService) { }
+  constructor(private router:Router) { }
   cartProducts:any=[];
   ngOnInit(): void {
     this.cartProducts = [];
@@ -25,5 +26,12 @@ export class HeaderComponent implements OnInit {
     
   }
   cartCount:number=0;
+navigateToRegister(){
+  this.router.navigateByUrl('/register')
+}
 
+navigateToProducts(){
+  this.router.navigateByUrl('/productsManagment')
+
+}
 }

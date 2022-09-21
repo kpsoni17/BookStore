@@ -2,16 +2,18 @@
 
     <div class="container">
       <label for="uname"><b>Email</b></label>
-      <input type="text" placeholder="Enter Registered Email" name="email" formControlName="email">
-      <p class="errorClass" *ngIf="submitted && l['email'].hasError('required')">*Email is required</p>
+      <input type="text" [ngClass]="{'isInvalid':l['email'].hasError('required')}" autocomplete="off" id="username-container" placeholder="Enter Registered Email" name="email" formControlName="email">
+      <p class="errorClass" id="username-error-msg" *ngIf="submitted && l['email'].hasError('required')">Please enter username</p>
+      <!-- <p id="username-error-msg" >Please enter username</p> -->
  
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" formControlName="password">
-      <p class="errorClass" *ngIf="submitted && l['password'].hasError('required')">*Password is required</p>
+      <input type="password"  [ngClass]="{'isInvalid':l['password'].hasError('required')}" autocomplete="off" id="password-container" placeholder="Enter Password" name="psw" formControlName="password">
+      <p id="password-error-msg" class="errorClass" *ngIf="submitted && l['password'].hasError('required')">Please enter password</p>
+      <!-- <p id="password-error-msg">Please enter password</p> -->
 
         
-      <button style="background-color: #f14d54;" type="submit" (click)="login()">Login</button>
+      <button  style="background-color: #f14d54;" type="submit" id="login-btn-container" (click)="login()">Login</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">

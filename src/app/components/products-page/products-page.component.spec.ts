@@ -20,11 +20,11 @@ fdescribe('ProductsPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductsPageComponent ],
       // 1 Done For Testing
-      // imports:[HttpClientTestingModule,FormsModule]
+      imports:[HttpClientTestingModule,FormsModule]
 
       //2 DoneForTesting
-      providers:[{HttpDataService,useValue:datServiceSPy}],
-      schemas:[NO_ERRORS_SCHEMA]
+      // providers:[{HttpDataService,useValue:datServiceSPy}],
+      // schemas:[NO_ERRORS_SCHEMA]
     }) 
     .compileComponents();   
 
@@ -38,12 +38,20 @@ fdescribe('ProductsPageComponent', () => {
   });
 
 
-  it('should have links', () => {
-    expect(fixture.debugElement.queryAll(By.css('a')).length).toBe(3);
-  });
+//   it('should have links', () => {
+//     expect(fixture.debugElement.queryAll(By.css('a')).length).toBe(3);
+//   });
   
- it('should have data', () => {
-    expect(component.allData.length).toBe(3);
-  });
+//  it('should have data', () => {
+//     expect(component.allData.length).toBe(3);
+//   });
+
+
+it('should have skyblue <h2>', () => {
+  const h2: HTMLElement = fixture.nativeElement.querySelector('h2');
+  const bgColor = h2.style.backgroundColor;
+  expect(bgColor).toBe('skyblue');
+});
+
 
 });

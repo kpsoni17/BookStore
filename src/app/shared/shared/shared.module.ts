@@ -11,7 +11,9 @@ import { MatTableModule } from '@angular/material/table';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,

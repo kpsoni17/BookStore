@@ -11,19 +11,19 @@
         <div class="container">
           
           <label style="font-size: 15px;" for="firstName"><b>First Name *</b></label>
-          <input type="text" placeholder="First Name" name="firstName" formControlName="firstName" id="firstName">
+          <input  type="text"  [ngClass]="{'isInvalid':r['firstName'].hasError('required')}" id="firstname-container" placeholder="First Name" name="firstName" formControlName="firstName" id="firstName">
          
             <p class="errorClass" *ngIf="submitted && r['firstName'].hasError('required')">*First name is required</p>
         
           
  
           <label style="font-size: 15px;" for="lastName"><b>Last Name *</b></label>
-          <input type="text" placeholder="Last Name" name="lastName" formControlName="lastName" id="lName">
+          <input type="text"  [ngClass]="{'isInvalid':r['lastName'].hasError('required')}" id="lastname-container" placeholder="Last Name" name="lastName" formControlName="lastName" id="lName">
           <p class="errorClass" *ngIf="submitted && r['lastName'].hasError('required')">*Last name is required</p>
 
 
           <label style="font-size: 15px;" for="email"><b>Email *</b></label>
-          <input type="text" placeholder="Email Address" name="email" formControlName="email" id="email">
+          <input type="text"  [ngClass]="{'isInvalid':r['email'].hasError('required')}" id="email-container" placeholder="Email Address" name="email" formControlName="email" id="email">
           <p class="errorClass" *ngIf="submitted && r['email'].hasError('required')">*Email is required</p>
 
         </div>
@@ -32,12 +32,12 @@
           <hr style="width: 500px;">
 
           <label for="psw" style="font-size: 15px;"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" formControlName="password" name="psw" id="psw">
+          <input type="password" id="password-container"  [ngClass]="{'isInvalid':r['password'].hasError('required')}" placeholder="Enter Password" formControlName="password" name="psw" id="psw">
           <p class="errorClass" *ngIf="submitted && r['password'].hasError('required')">*Password is required</p>
 
       
           <label for="psw-repeat" style="font-size: 15px;"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" formControlName="confirmPassword" name="psw-repeat" id="psw-repeat">
+          <input type="password"  id="repeatPassword-container" placeholder="Repeat Password" formControlName="confirmPassword" name="psw-repeat" id="psw-repeat">
           <p class="errorClass" *ngIf="submitted && r['confirmPassword'].hasError('required') && !r['password'].value != r['confirmPassword'].value">*Confirm password is required</p>
           <p class="errorClass" *ngIf="submitted && r['password'].value != r['confirmPassword'].value">*Password doesn't match</p>
 
@@ -45,7 +45,7 @@
       
          
         </div>
-        <button style="background-color:#f14d54" type="submit" class="registerbtn" (click)="submitForm()">Register</button>
+        <button style="background-color:#f14d54" type="submit" class="registerbtn" id="signup-btn-container" (click)="submitForm()">Register</button>
         
         <div class="container signin" >
           <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
