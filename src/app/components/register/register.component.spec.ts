@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -18,7 +19,8 @@ fdescribe('RegisterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RegisterComponent ],
-      imports:[ReactiveFormsModule,RouterTestingModule]
+      imports:[ReactiveFormsModule,RouterTestingModule],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 

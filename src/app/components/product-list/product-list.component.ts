@@ -41,6 +41,11 @@ addToCart(product:any){
   if (this.products.length == 0) {
       this.products.push(product);
       localStorage.setItem('PRODUCTS', JSON.stringify(this.products));
+
+      this.httpDataService.getData().subscribe((res: any) => {
+        this.allProducts.data=res;
+        })
+        
       return;
     }
     else{
